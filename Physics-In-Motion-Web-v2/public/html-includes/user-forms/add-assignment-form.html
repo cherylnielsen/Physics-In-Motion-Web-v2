@@ -1,0 +1,101 @@
+
+<!--professor-form-page.php?form_type=add_assignment -->
+<?php	
+	
+	$section_list = array();
+	$section_list = $sectionTables->getListSectionIDNames_ByProfessor(
+									$professor_id, $mdb_control);
+									
+	$tutorial_lab_list = array();
+	$tutorial_lab_list = $dataUtility->getListTutorialLabIDNames($mdb_control);
+	
+	// checks GET and POST, if not set, returns empty string
+	$section_id = $assignmentAction->getSectionID();
+	$date_assigned = $assignmentAction->getDateAssigned();
+	$assignment_name = $assignmentAction->getAssignmentName();
+	$section_name = $assignmentAction->getSectionName();
+	$date_due = $assignmentAction->getDateDue();
+	$points_possible = $assignmentAction->getPointsPossible();
+	$tutorial_lab_id = $assignmentAction->getTutorialLabID();
+	
+	echo "<div class='form-errors' id='form_errors'> $form_errors </div>";
+	
+?>
+
+<form id="addAssignmentForm" method="POST" enctype="multipart/form-data">
+	
+	<fieldset>
+		<h2 class="form">Add Assignment</h2>	
+
+		<label>Date to be Assigned: <br><input type="date" name="date_assigned" required 
+			min=<?php echo date('m/d/Y'); ?>  value="<?php echo "$date_assigned"; ?>" >
+		</label><br >
+		
+		<label>Assignment Name: <br><input type="text" name="assignment_name" required 
+			value="<?php echo "$assignment_name"; ?>" >
+		</label><br>
+		
+		<label>Section: &nbsp;&nbsp; 
+			<select id="section_id" name="section_id" required >
+				<option value='' ></option>
+				<?php
+					for($i = 0; $i < count($section_list); $i++)
+					{
+						$sec_id = $section_list[$i]['id'];
+						$name = $section_list[$i]['name'];
+						$str = "<option value='$sec_id' >$name</option>";
+						
+						if(strcmp($section_id, $sec_id) === 0)
+						{
+							$str = "<option value='$sec_id' selected >$name</option>";
+						}
+						
+						echo "$str";
+					}				
+				?>
+			</select>
+		</label><br><br>		
+	
+		<label>Tutorial Lab: &nbsp;&nbsp; 
+			<select id="tutorial_lab_id" name="tutorial_lab_id" required >
+				<option value='' ></option>
+				<?php
+					for($i = 0; $i < count($tutorial_lab_list); $i++)
+					{
+						$lab_id = $tutorial_lab_list[$i]['id'];
+						$name = $tutorial_lab_list[$i]['name'];
+						$str = "<option value='$lab_id' >$name</option>";
+						
+						if(strcmp($tutorial_lab_id, $lab_id) === 0)
+						{
+							$str = "<option value='$lab_id' selected >$name</option>";
+						}
+						
+						echo "$str";
+					}				
+				?>
+			</select>
+		</label><br><br >
+		
+		<label>Date Due: <br><input type="date" name="date_due" required 
+			min=<?php echo date('m/d/Y'); ?>  value="<?php echo "$date_due"; ?>" >
+		</label><br >
+		
+		<label>Points Possible: <br><input type="number" name="points_possible"  
+			min="0" max="1000" required  value="<?php echo "$points_possible"; ?>" >
+		</label><br>
+		
+		<label>Attachments: Select one or more files. (Optional) 				
+			<input type="file" name="attachments[]" id="attachments" 
+					multiple onchange="showFileNames()">
+		</label>
+		<p id="fileListing"></p><br>
+		
+		<div class="formButtonDiv">
+			<input type="submit" value="Save Assignment">		
+			<a href='<?php echo "$returnURL" ?>' class='button red'>Cancel</a>		
+		</div>
+		
+	</fieldset>
+	
+</form>

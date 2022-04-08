@@ -1,0 +1,127 @@
+@charset "ISO-8859-1";
+/* CSS Document */
+
+section.main-content {
+	float: left;
+	width: 77%;
+	margin-bottom: 2em;	
+	margin-left: 1em;
+}
+
+/* grid style specific lab information page */
+
+.grid-lab-info {
+	display: grid;
+	grid-column-gap: 10px;
+	grid-row-gap: 10px;
+	grid-template-columns: auto;
+}
+
+.grid-lab-ratings {
+  display: grid;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  grid-template-columns: auto auto;
+}
+
+/* page style details */
+
+h1, h2 {
+	text-align: center;
+}
+
+h1.labs-title, h1.ratings-title {
+	padding: 0.5em;
+	margin: 0 0 10px 0;
+	border: 2px solid gold;
+	border-radius: 10px;
+	background-color: #00BFFF;
+	text-align: center;
+}
+
+
+img.right {
+	float: right;
+	margin-left: 20px;
+	height: 200px;
+	border: 2px solid #03AA0D;
+	border-radius: 10px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+img.left {
+	float: left;
+	margin-right: 24px;
+	height: 200px;
+	border: 2px solid #03AA0D;
+	border-radius: 10px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+article.lab-info div {
+	text-align: left;
+}
+
+article h2, article h1 {
+	text-align: left;
+}
+
+.development-status {
+	color: #03AA0D;
+}
+
+.new-status {
+	color: crimson;
+}
+
+article.lab-rating {
+	padding: 0 1em;
+	border: 2px solid #03AA0D;
+	border-radius: 10px;
+}
+
+p.rating-comments {
+	background-color: #00BFFF;
+	padding: 10px;
+	margin-right: 30px;
+	margin-bottom: 10px;
+}
+
+@media screen and (max-width: 950px) {
+	.grid-lab-info {
+	  display: block;  
+	}
+	
+	section.main-content {
+		float: left;
+		width: 65%;
+		margin: 0 1.5em 1em 1em;		
+	}
+	
+	article.lab-rating {
+		width: 90%;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.grid-lab-info {
+	  display: block;  
+	}
+	
+	section.main-content {
+		width: 90%;
+		margin: 0 1.5em 1em 0;
+	}
+	
+	img.left, img.right {
+		width: 95%;
+		height: 100%;
+	}
+	
+	article.lab-rating {
+		width: 85%;
+	}
+	
+}

@@ -1,0 +1,130 @@
+
+<!--professor-form-page.php?form_type=edit_assignment ... -->
+<?php
+
+	$section_id = $assignmentAction->getSectionID();
+	$assignment_id = $assignmentAction->getAssignmentID();
+
+	$tutorial_lab_list = array();
+	$tutorial_lab_list = $dataUtility->getListTutorialLabIDNames($mdb_control);
+
+	$controller = $mdb_control->getController("assignment_view");
+	$assignment_view = $controller->getByPrimaryKeys("assignment_id", 
+							"$assignment_id", "section_id", "$section_id");								
+
+
+	// get any previously attached file information, 
+	// in case the professor wants to edit the list
+	$controller = $mdb_control->getController("assignment_attachment");
+	$attached_files = $controller->getByAttribute("assignment_id", $assignment_id);
+
+
+	// Checks GET and POST, if not set it returns the existing object values.
+	// If the assignment_view object is null, it returns the empty string.
+	$assignment_name = $assignmentAction->getAssignmentNameEdit($assignment_view);
+	$section_name = $assignmentAction->getSectionNameEdit($assignment_view);
+	$date_assigned = $assignmentAction->getDateAssignedEdit($assignment_view);
+	$date_due = $assignmentAction->getDateDueEdit($assignment_view);
+	$points_possible = $assignmentAction->getPointsPossibleEdit($assignment_view);
+	$tutorial_lab_id = $assignmentAction->getTutorialLabIDEdit($assignment_view);	
+
+			
+	echo "<div class='form-errors' id='form_errors'> $form_errors </div>";
+	
+?>
+
+
+<form 	id="editAssignmentForm" method="POST" enctype="multipart/form-data" >
+	
+	<fieldset>
+	
+		<input type="hidden" name="assignment_id" value="<?php echo "$assignment_id" ?>" >
+		<input type="hidden" name="assignment_name" value="<?php echo "$assignment_name" ?>" >
+		<input type="hidden" name="section_id" value="<?php echo "$section_id" ?>" >
+		<input type="hidden" name="section_name" value="<?php echo "$section_name" ?>" >
+		
+		<h2 class="form">Edit Assignment</h2>		
+		
+		<p>Section: &nbsp;&nbsp;
+			<?php echo "Section $section_id : $section_name"; ?>
+		</p><br>
+		
+		<p>Assignment to Edit: &nbsp;&nbsp;
+			<?php  echo "Assignment $assignment_id : $assignment_name"; ?>
+		</p><br>
+		
+		<label>Assignment Name: <br><input type="text" name="assignment_name" required 
+			pattern="^[a-zA-Z0-9 \-\'\.]+$" value='<?php echo "$assignment_name"; ?>' >
+		</label><br>
+	
+		<label>Tutorial Lab: &nbsp;&nbsp;
+			<select id="tutorial_lab_id" name="tutorial_lab_id" required >
+				<option value='' ></option>
+				
+				<?php
+					for($i = 0; $i < count($tutorial_lab_list); $i++)
+					{
+						$lab_id = $tutorial_lab_list[$i]['id'];
+						$name = $tutorial_lab_list[$i]['name'];
+						$str = "<option value='$lab_id' >$name</option>";
+						
+						if(strcmp($tutorial_lab_id, $lab_id) === 0)
+						{
+							$str = "<option value='$lab_id' selected >$name</option>";
+						}
+						
+						echo "$str";
+					}				
+				?>
+				
+			</select>
+		</label><br><br>
+		
+		<label>Date Assigned: <br><input type="date" name="date_assigned" required 
+			value='<?php echo "$date_assigned"; ?>' >
+		</label><br>
+		
+		<label>Date Due: <br><input type="date" name="date_due" required 
+			value='<?php echo "$date_due"; ?>' >
+		</label><br>
+		
+		<label>Points Possible: <br><input type="number" name="points_possible"  
+			min="0" max="1000" required
+			value='<?php echo "$points_possible"; ?>' >
+		</label><br>
+		
+		<?php 
+		
+			if(count($attached_files) > 0) 
+			{
+				echo '<p>Edit Attachments: Do you want to delete any of the 
+						current attachments? (Optional)</p>';
+				
+				for ($i = 0; $i < count($attached_files); $i++)
+				{
+					$filename = $attached_files[$i]->get_filename();
+					
+					echo "<label><input type='checkbox' name='original_files[]' 
+						value='$filename' >&nbsp; $filename</label><br>";					
+				}
+				
+				echo '<br>';
+			}
+		
+		?>
+		
+		<label>New Attachments: Select one or more files. (Optional)				
+			<input type="file" name="attachments[]" id="attachments" 
+					multiple onchange="showFileNames()">
+		</label>
+		<p id="fileListing"></p><br class="form">
+		
+		<div class="formButtonDiv">
+			<input type="submit" value="Save Changes">		
+			<a href='<?php echo "$returnURL" ?>' class='button red'>Cancel</a>		
+		</div>
+	
+	</fieldset>
+	
+	
+</form>

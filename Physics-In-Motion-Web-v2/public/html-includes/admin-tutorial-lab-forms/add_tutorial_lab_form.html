@@ -1,0 +1,113 @@
+<?php
+
+	require_once("../private/user_action/adminLabAction.php");
+	
+	$addLab = new adminLabAction();
+	$returnURL = "admin-home-page.php";
+	$form_errors = "";
+	
+	// checks GET and POST, if not set, returns empty string
+	$tutorial_lab_name = $addLab->getLabName();
+	$web_link = $addLab->getWebLink();
+	$lab_status = $addLab->getLabStatus();
+	$introduction = $addLab->getIntroduction();
+	$prerequisites = $addLab->getPrerequisites();
+	$key_topics = $addLab->getKeyTopics();
+	//$key_equations = $addLab->getKeyEquations();
+	//$description = $addLab->getDescription();
+	//$instructions = $addLab->getInstructions();
+		
+	$status_list = array();
+	$status_list = $addLab->getLabStatusOptions();	
+	
+	if($_SERVER['REQUEST_METHOD'] == 'POST')
+	{
+		$form_errors = $addLab->processForm($mdb_control, $returnURL);
+	}
+	
+	echo "<div class='form-errors' id='form_errors'> $form_errors </div>";
+	
+?>
+
+
+<form id="addTutorialLabForm" method="POST" enctype="multipart/form-data" >
+
+<fieldset>
+	<input type='hidden' name='action_type' value='add'>
+	
+	<h2 class="form">Add New Tutorial Lab</h2>	
+	<br>
+	
+	<label>Tutorial Lab Name: <br><input type="text" name="tutorial_lab_name" required 
+		value="<?php echo "$tutorial_lab_name"; ?>" >
+	</label><br>
+	
+	<label>Web Link: <br><input type="text" name="web_link" required 
+		value="<?php echo "$web_link"; ?>" >
+	</label><br>
+	
+	<label>Lab Status: <br>
+		<select id="lab_status" name="lab_status" required 
+			onchange="populateForm('section')">
+			
+			<option value='' ></option>
+			<?php
+				for($i = 0; $i < count($status_list); $i++)
+				{
+					$status = $status_list[$i];
+					$str = "<option value='$status' >$status</option>";
+					
+					if(strcmp($lab_status, $status) == 0)
+					{
+						$str = "<option value='$status' selected >$status</option>";
+					}
+					
+					echo "$str";
+				}				
+			?>
+			
+		</select>
+	</label><br>
+	
+	</fieldset>
+	<fieldset>
+	<br>
+	
+	<label>Introduction: <br><textarea name="introduction" rows="10" cols="50" 
+		spellcheck="true" required ><?php echo "$introduction"; ?></textarea>
+	</label><br>
+	
+	<label>Prerequisites: <br><textarea name="prerequisites" rows="10" cols="50" 
+		spellcheck="true" required ><?php echo "$prerequisites"; ?></textarea>
+	</label><br>
+	
+	<label>Key Topics: <br><textarea name="key_topics" rows="10" cols="50" 
+		spellcheck="true" required ><?php echo "$key_topics"; ?></textarea>
+	</label><br>
+	
+	</fieldset>
+	<fieldset>
+	<br>
+	<label>Key Equations: Select a file. (Optional) 				
+		<input type="file" name="key_equations" onchange="showFileNames()">
+	</label>
+	<p id="fileListing"></p>
+	
+	<label>Description: Select a file. (Optional) 				
+		<input type="file" name="description" onchange="showFileNames()">
+	</label>
+	<p id="fileListing"></p>
+	
+	<label>Instructions: Select a file. (Optional) 				
+		<input type="file" name="instructions" onchange="showFileNames()">
+	</label>
+	<p id="fileListing"></p>
+	
+	<div class="formButtonDiv">
+		<input type="submit" value="Add New Tutorial Lab">		
+		<a href='<?php echo "$returnURL" ?>' class='button red'>Cancel</a>		
+	</div>
+		
+	</fieldset>
+</form>
+

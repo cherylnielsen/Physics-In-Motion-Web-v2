@@ -1,0 +1,71 @@
+@charset "ISO-8859-1";
+/* CSS Document */
+
+@import "main-phone.css";
+
+div.sign-in {
+	display: none;
+}
+
+h1.logo {
+	display: inline-block;
+	font-size: 4em;
+	color: #03AA0D;
+	font-style: italic;
+}
+
+img.cornerLogo {
+	width: 150px;
+}
+
+aside.nav-quote {
+	margin: auto;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+
+h1.summary {
+	width: auto;
+	position: relative;
+	top: 0;
+	left: 0;
+	font-size: 2em;
+}
+
+#secondary-navigation{
+	display: none;
+}
+
+.secondary-navigation{
+	display: none;
+}
+
+.navigation{
+	display: none;
+}
+
+* {
+	font-size: 0.5;
+}
+
+h1 {
+	font-size: 1.1em;
+}
+
+h2 {
+	font-size: 1.0em;
+}
+
+h3 {
+	font-size: 0.9em;
+}
+
+tr.selectedNotice {
+	display: none;
+}
+
+table, td {
+	border: 1px solid black;
+	padding: 5px;
+}

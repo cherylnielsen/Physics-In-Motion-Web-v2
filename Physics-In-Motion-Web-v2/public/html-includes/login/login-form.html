@@ -1,0 +1,34 @@
+
+<div class="form-errors" id="form_errors"></div>
+
+<form id="loginform" action="login-register-page.php?form_type=login" method="POST" >
+	
+	<fieldset>
+		<h2 class="form">Sign In:</h2>
+		<label>Member Name <br><input type="text" name="membername" id="membername" 
+		autofocus required pattern="(?=\S*\d)(?=\S*[a-z])(?=\S*[A-Z])\S{8,}" 
+		value="<?php if (isset($_POST['membername'])) echo $_POST['membername']; ?>" >
+		</label>
+		<br>
+		<label>Password <br><input type="password" name="password" id="password" 
+			required pattern="(?=\S*\d)(?=\S*[a-z])(?=\S*[A-Z])\S{8,}" >
+		</label>
+		<br>		
+		
+		<div class="centerButtonDiv" >
+		
+			<input type="submit" value="Sign In">		
+			<br>
+			
+			<a class="login-link" id="forgot_login" 
+			href="login-register-page.php?form_type=forgotlogin" >
+			Forgot ID / Password?</a>
+			<br>
+			
+			<a class="login-link" href="login-register-page.php?form_type=register">
+			Create Account</a>
+			
+		</div>
+	</fieldset>
+	
+</form>

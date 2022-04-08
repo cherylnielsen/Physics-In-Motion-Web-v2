@@ -1,0 +1,47 @@
+@charset "ISO-8859-1";
+/* CSS Document */
+/* for all size screens */
+
+.grid-container {
+  display: grid;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  grid-template-columns: auto;
+}
+
+article.summary {
+	margin: 5px 0 10px 0;
+}
+
+article.summary:last-of-type {
+	margin-bottom: 30px;
+}
+
+img.summary {
+	display: block;
+	height: 200px;
+	width: 300px;
+	border: 2px solid #03AA0D;
+	border-radius: 10px;
+}
+
+img.right {
+	float: right;
+	margin: 0 0 0 20px;
+}
+
+img.left {
+	float: left;
+	margin: 0 20px 0 0;
+}
+
+h1.summary {
+	margin-bottom: 10px;
+}
+
+ul {
+	margin-left: 1em;
+}
+
+
+

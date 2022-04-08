@@ -1,0 +1,54 @@
+@charset "ISO-8859-1";
+/* CSS Document */
+
+h1.welcome {
+	text-align: left;
+	padding-left: 20%;
+}
+
+div#actionTaskDiv {
+	width: 300px;
+	float: left;
+	margin-top: 0;
+	margin-right: 30px;
+	border: 2px solid gold;
+	border-radius: 10px;
+	background-color: #00BFFF;
+}
+
+div#noticeSummaryDiv {
+	width: 300px;
+	float: left;
+	margin-top: 0;
+	margin-bottom: 2em;
+}
+
+h2.task {
+	text-align: center;
+	border-bottom: 1px solid gold;
+	border-radius: 10px;
+	background-color: lightyellow;
+	padding: 5px;
+	margin: 0;
+}
+
+ul.task {
+	padding: 10px 0 15px 0;
+}
+
+ul.task li {
+	padding: 10px 30px;
+	list-style-type: none;
+}
+
+table.notice-summary {
+	width: 300px;
+	float: left;
+}
+
+h2.center{
+	text-align: center;
+}
+
+/** admin forms **/
+

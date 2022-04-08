@@ -1,0 +1,67 @@
+@charset "ISO-8859-1";
+/* CSS Document */
+/* changes to css for medium size screens */
+
+div.logo {
+	background-size:  40% 75%;
+}
+
+div.sign-in {
+	position: absolute;
+	top: 0;
+	right: 0;	
+	width: 200px;
+	padding: 1em 0.5em 0.5em 0.5em;
+}
+
+aside.nav-quote {
+	width: 25%;
+}
+
+section.main-content {
+	float: left;
+	width: 70%;
+	padding: 2% 0 2% 2%;
+	margin-bottom: 1em;
+}
+
+/*  new labs side */
+
+a.top_link {
+	display: inline-block;
+	margin: 0.5em;
+}
+
+section.new_labs {
+	clear: both;	
+	width: 100%;
+	border: none;
+}
+
+img.new_labs {
+	width: 50%;
+	height: 100%;
+}
+
+article.new_labs:first-of-type {
+	border-top: 2px solid gold;
+}
+
+article.new_labs:last-of-type {
+	border-bottom: 2px solid gold;
+}
+
+/* full labs page and others*/
+
+img.card {
+	display: block;
+	width: 80%;
+	height: 100%;
+	margin: auto;
+	padding-bottom: 10px;	
+}
+
+section.quotes {
+	padding-top: 0;
+	margin-top: 0;
+}

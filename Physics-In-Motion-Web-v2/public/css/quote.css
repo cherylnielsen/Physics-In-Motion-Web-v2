@@ -1,0 +1,27 @@
+@charset "ISO-8859-1";
+/* CSS Document */
+
+h1.quotes {
+	padding: 0.5em;
+	margin: 0;
+	border: 2px solid gold;
+	border-radius: 10px;
+	background-color: #00BFFF;
+}
+
+section.quotes {
+	text-align: center;
+	width: 100%;
+	padding-top: 1em;
+}
+
+article.quotes {
+	padding-top: 1.5em;
+}
+
+hr.quotes {
+	width: 50%;
+	margin-left: 25%;
+	margin-top: 1em;
+	color: #03AA0D;
+}

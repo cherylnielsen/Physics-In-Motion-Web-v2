@@ -1,0 +1,186 @@
+@charset "ISO-8859-1";
+/* CSS Document */
+/* for all size screens */
+
+/* remove preset browser defaults */
+* {
+	margin: 0; 
+	padding: 0;
+}
+
+/* outermost container inside body */
+div.wrapper { 
+	margin: 0px;
+}
+
+p {
+	margin: 0.5em 0;
+}
+
+header{ 
+	height: 125px;
+	text-align: center;
+	/* border-bottom: 2px solid #03AA0D; my green */
+	background: #00BFFF;
+	border-bottom: 2px solid gold;
+}
+
+a#cornerLogo {
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+img.cornerLogo {	
+	height: 125px;	
+	border-right: 2px solid gold;
+	border-radius: 0 10px 10px 0;
+	position: absolute;
+	top: 0;
+	left: 0;	
+}
+
+
+div.logo {	
+	height: 125px;
+	background: url("../images/logo words 3 19 19.png");
+	background-origin: content-box;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size:  60% 95%;	
+	padding-right: 70px;
+}
+
+a#top {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+}
+
+h1.logo {
+	/**display: inline-block;**/
+	display: none;
+	text-align: center;	
+	margin: 0;
+	padding: 15px;
+	font-family: "Times New Roman", "serif";
+	font-size: 2em;
+	color: black;
+}
+
+div.sign-in {
+	border-left: 2px solid gold;
+	border-radius: 10px 0 0 10px;
+	text-align: center;
+	padding: 1em 0.5em 0.5em 0.5em;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: #66ddaa;
+	font-size: 1em;
+	font-weight: 600;
+	height: 101px;
+	width: 15%;
+}
+
+div.sign-in > * {
+	display: inline-block;
+	margin: 0.5em;
+}
+
+input[type=button] {
+	font-family: "Times New Roman", "serif";
+	font-size: 1em;
+	padding: 5px 25px;
+	background-color: #00BFFF;
+}
+
+section.main-content {
+	float: left;
+	width: 54%;
+	padding: 0 2%;
+}
+
+h1.logo-statement {
+	border: 2px solid gold;
+	border-radius: 10px;
+	background-color: #00BFFF;
+	text-align: center;
+	padding: 0.5em;
+	margin-bottom: 1em;
+}
+
+div.form-errors {
+	text-align: center;
+	color: crimson;
+}
+
+footer {  
+	clear: both;
+	padding: 2% 4%;
+	border-top: 2px solid gold;
+	background-color: #00BFFF;
+}
+
+/** other **/
+
+span.star {
+	font-size: 1.5em;
+}
+
+span.full-star {
+	font-size: 1.7em;
+	position: relative;
+	top: 2px;
+}
+
+a {
+	display: inline-block;
+	font-weight: 900;	
+	margin: 0.5em;
+}
+
+a.top_link {
+	display: none;
+}
+
+a.not-enabled {
+	color: gray;
+}
+
+h1 {
+	font-size: 1.3em;
+	margin: 0.5em 0;
+}
+
+h2 {
+	font-size: 1.1em;
+	margin: 0.5em 0;
+}
+
+h3 {
+	font-size: 1.0em;
+	margin: 0.5em 0;
+}
+
+.green {
+	color: #03AA0D;
+}
+
+.blue {
+	color: Blue;
+}
+
+.gray {
+	color: Gray;
+}
+
+.red {
+	color: crimson;
+}
+
+.gold {
+	color: gold;
+}
+

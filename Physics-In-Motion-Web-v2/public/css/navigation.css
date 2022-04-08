@@ -1,0 +1,72 @@
+@charset "ISO-8859-1";
+/* CSS Document */
+/* for all size screens */
+
+/** navigation **/
+
+aside.nav-quote {
+	float: left;
+	width: 16%;
+	border-right: 2px solid gold;
+	border-bottom: 2px solid gold;
+	border-radius: 0 0 10px 0;
+	background-color: #66ddaa;
+}
+
+h2.navigation {
+	padding: 0.5em 1.5em;
+	margin: 0;
+	background-color: #00BFFF;
+	border-top: 2px solid gold;
+	border-bottom: 2px solid gold;
+}
+
+h2.main-nav {
+	border-top: none;
+	padding: 0.5em 1.5em;
+}
+
+
+nav.second-navigation {
+	width: 100%;
+	text-align: left;
+}
+
+a.navigation, button.navigation {
+	display: block;
+	padding: 0.5em 1em;
+	width: 83%;
+	text-decoration: none;
+	border: none;
+	font-family: "Times New Roman", "serif";
+	font-size: 1em;
+	color: black;
+	text-align: left;
+	font-weight: 900;	
+	cursor: pointer;
+}
+
+button.navigation {
+	width: 100%;
+	background-color: #66ddaa;
+}
+
+a.not-enabled {
+	color: gray;
+	cursor: default;
+}
+
+div.quote {
+	margin-top: 0.5em;
+	padding: 1em 1em 1em 0.5em;
+	border-top: 2px solid gold;
+	border-radius: 0 0 10px 0;
+	background-color: #00BFFF;
+	text-align: center;
+}
+
+div.quote > h2 {
+	margin: 0 0 1em 0;
+}
+
+

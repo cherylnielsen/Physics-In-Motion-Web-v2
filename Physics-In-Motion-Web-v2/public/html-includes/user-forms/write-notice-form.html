@@ -1,0 +1,111 @@
+
+<?php	
+	require_once('html-includes/user-forms/write-notice-action.php');
+
+	$member_list = array();
+	$member_list = $dataUtility->getMemberList($mdb_control);		
+	$section_list = array();	
+	$section_list = $sectionTables->getSectionList($mdb_control);	
+	
+	$date_sent = date("m/d/Y H:i:s");
+	$from_first_name = $_SESSION["first_name"];
+	$from_last_name = $_SESSION["last_name"];	
+	$from_member_id = $_SESSION["member_id"];
+	
+	// checks POST, if not set, returns empty string	
+	$notice_subject = $noticeAction->getNoticeSubject();
+	$notice_text = $noticeAction->getNoticeText();
+	$to_section_id = $noticeAction->getToSectionID();
+	$to_member_id = $noticeAction->getToMemberID();		
+	//$response_to_notice_id = null;
+	//$flag_for_review = false;	
+	
+	echo "<div class='form-errors' id='form_errors'> $form_errors </div>";	
+?>
+
+<form id='write_notice_form' method='POST' enctype='multipart/form-data'>
+	
+	<fieldset>
+		
+		<input type="hidden" name="date_sent" value="<?php echo "$date_sent" ?>" >				
+		<input type="hidden" name="from_member_id" value="<?php echo "$from_member_id" ?>" >
+		<input type="hidden" name="from_first_name" value="<?php echo "$from_first_name" ?>" >
+		<input type="hidden" name="from_last_name" value="<?php echo "$from_last_name" ?>" >
+		<input type="hidden" name="flag_for_review" value="false" >
+		
+		
+		<h2 class="form">Write Notice</h2>		
+		<p>Date: &nbsp;&nbsp; <?php echo "$date_sent" ?></p>		
+		<p>From: &nbsp; <?php echo "$from_first_name &nbsp; $from_last_name"; ?></p>
+		<br>
+				
+				
+		<label>To Section: 
+			<select id="to_section_id" name="to_section_id">
+				<option value='' ></option>
+				<?php
+					for($i = 0; $i < count($section_list); $i++)
+					{
+						$sec_id = $section_list[$i]['id'];
+						$name = $section_list[$i]['name'];
+						$str = "<option value='$sec_id' >$name</option>";
+						
+						if($to_section_id == $sec_id)
+						{
+							$str = "<option value='$sec_id' selected >$name</option>";
+						}
+						
+						echo "$str";
+					}				
+				?>
+			</select>
+		</label><br><br>
+		
+		
+		<label>To Member: 
+			<select id="to_member_id" name="to_member_id" >
+				<option value='' ></option> 
+				<?php
+					for($i = 0; $i < count($member_list); $i++)
+					{
+						$member_id = $member_list[$i]['id'];
+						$name = $member_list[$i]['name'];
+						$str = "<option value=$member_id >$name</option>";
+						
+						if($to_member_id == $member_id)
+						{
+							$str = "<option value=$member_id selected >$name</option>";
+						}
+						
+						echo "$str";
+					}
+				?>
+			</select>
+		</label><br class="form"><br>
+				
+				
+		<label>Subject: <br><input type="text" name="notice_subject" required 
+			value='<?php echo "$notice_subject"; ?>' >
+		</label><br><br>
+				
+				
+		<label>Attachments: Select one or more files. (Optional) 				
+			<input type="file" name="attachments[]" id="attachments" 
+					multiple onchange="showFileNames()">
+		</label>
+		<p id="fileListing"></p><br>
+		
+		
+		<label>Message: <br><textarea name="notice_text" rows="10" cols="50" 
+			spellcheck="true" required ><?php echo "$notice_text"; ?></textarea>
+		</label><br>	
+		
+		
+		<div class="formButtonDiv">
+			<input type="submit" value="Send">	
+			<a href='<?php echo "$cancelURL" ?>' class='button red'>Cancel</a>
+		</div>
+				
+	</fieldset>
+	
+</form>

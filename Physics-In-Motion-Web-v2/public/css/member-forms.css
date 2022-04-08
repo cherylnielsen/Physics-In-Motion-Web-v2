@@ -1,0 +1,260 @@
+@charset "ISO-8859-1";
+/* CSS Document */
+
+section.main-content-forms {
+	float: left;
+	width: 50%;
+	padding: 0 0 1% 2%;
+}
+
+h1.form, h2.form {
+	margin: 0.5em 0.5em 0.5em 0;
+}
+
+.center {
+	text-align: center;
+}
+
+h1.welcome {
+	padding: 0.5em 0 0 0.5em;
+}
+
+div.form-errors {
+	color: crimson;
+	font-weight: 900;
+	margin: 0 5em;
+}
+
+form {
+	width: auto;
+	padding-bottom: 1em;
+}
+
+form > * {
+	font-family: "Times New Roman", "serif";
+	font-size: 1em;
+	margin: 0.5em;
+}
+
+fieldset {
+	display: block;
+	padding: 0 1em 1em 1em;
+	margin-bottom: 1em;
+	border: 2px solid gold;
+	border-radius: 10px;
+	background-color: #00BFFF;
+}
+
+div.clear-both {
+	clear: both;
+}
+
+input[type=text], input[type=email], textarea {
+	margin: 0.5em 0;
+	width: 96%;
+	padding: 0.3em;
+	padding-left: 7px;
+	border: 1px solid #03AA0D;
+	border-radius: 5px;
+	background-color: lightyellow;	
+}
+
+input[type=text].readonly {
+	width: 50%;
+	border: none;
+	background-color: #00BFFF;	
+}
+
+input[type=checkbox] {
+	width: 1.5em; 
+	height: 1.5em;
+	margin: 0.5em 0;
+}
+
+input[type=number] {
+	width: 6em;
+	height: 1.5em;
+	margin: 0.5em 0;
+	border: 1px solid #03AA0D;
+	border-radius: 5px;
+	background-color: lightyellow;	
+	padding-left: 7px;
+	padding-right: 3px;
+	font-family: "Times New Roman", "serif";
+	font-size: 1em;
+}
+
+input[type=date] {
+	font-family: "Times New Roman", "serif";
+	font-size: 1em;
+	height: 1.5em;
+	margin: 0.5em 0;
+	border: 1px solid #03AA0D;
+	border-radius: 5px;
+	background-color: lightyellow;	
+	padding-left: 7px;
+}
+
+input:invalid, textarea:invalid, select:invalid {
+	border: 1px solid crimson;
+	border-radius: 5px;
+	background-color: #ffd4d4;
+}
+
+div.formButtonDiv {
+	float: right;
+	padding-right: 2%;
+}
+
+a.button { 
+	font-family: "Times New Roman", "serif";
+	font-size: 1em;
+	padding: 5px 20px ;
+	background-color: #03CA0D;
+	margin: 0.75em 0.5em;
+	font-weight: bold;
+	border-radius: 5px;
+	text-decoration: none;
+	border: 2px solid white;
+	border-style: outset;
+	color: black;
+}
+
+a.red {
+	background-color: crimson;
+	color: black;
+}
+
+a.red:hover {
+	background-color: crimson;
+	color: white;
+}
+
+input[type=submit] { 
+	font-family: "Times New Roman", "serif";
+	font-size: 1em;
+	padding: 5px 25px ;
+	background-color: #03CA0D;
+	margin: 0.75em 0.5em;
+	font-weight: bold;
+	border-radius: 5px;
+}
+
+input[type=submit]:hover { 
+	color: white;
+}
+
+ul {
+	padding-left: 40px;
+}
+
+input[type=file] {
+	font-family: "Times New Roman", "serif";
+	font-size: 1em;	
+	margin: 0.25em 0;
+	border-radius: 5px;
+	border: 1px solid #03AA0D;
+	background-color: lightyellow;
+	width: 98%;
+}
+
+input[type=file]:invalid {
+	border: 1px solid crimson;
+	border-radius: 5px;
+	background-color: #ffd4d4;
+}
+
+select {
+	background-color: lightyellow;
+	color: black;
+	border-radius: 5px;
+	border: 1px solid #03AA0D;
+	width: 300px;
+	padding: 3px;
+	text-align: right;
+	margin: 0.25em 0;
+	font-family: "Times New Roman", "serif";
+	font-size: 1em;
+	text-align: left;
+}
+
+select option {
+	background-color: lightyellow;
+}
+
+
+/** star ratings **/
+
+div.rating {
+	float: left;
+	padding: 10px;
+}
+
+div.rating span {
+	font-size: 2em;
+	color: gray;
+	cursor: pointer;
+}
+
+div.rating {
+	padding-left: 0;
+}
+
+div.rating input[type=radio] {
+	width: 2em; 
+	height: 2em;
+	margin: 0.5em 0;
+	opacity: 0;
+	cursor: pointer;
+	position: relative;
+	left: -36px;
+	top: 2px;
+}
+
+@media screen and (max-width: 950px) {
+	
+	h1.logo-statement {
+		width: 80%;
+		position: relative;
+		left: 3%;
+	}
+	
+	section.main-content {
+		width: 70%;
+		padding: 0 0 0 5%;
+	}
+
+	section.main-content-forms {
+		float: left;
+		width: 70%;
+		padding: 0 0 1% 2%;
+	}
+	
+}
+
+@media screen and (max-width: 600px) {
+	
+	h1.logo-statement {
+		width: 80%;
+		position: relative;
+		left: 3%;
+	}
+	
+	section.main-content {
+		width: 90%;
+		padding: 0 0 0 5%;	
+	}
+	
+	section.main-content-forms {
+		float: left;
+		width: 90%;
+		padding: 0 0 1% 2%;
+	}
+	
+}
+
+
+
+
+
+

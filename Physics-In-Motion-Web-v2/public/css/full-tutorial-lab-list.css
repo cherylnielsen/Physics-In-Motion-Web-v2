@@ -1,0 +1,141 @@
+@charset "ISO-8859-1";
+/* CSS Document */
+
+section.main-content {
+	float: left;
+	width: 75%;
+	margin-bottom: 2em;		
+}
+
+h1.logo-statement {
+	text-align: center;
+}
+
+/* grid style full lab list page */
+
+.grid-container {
+  display: grid;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  grid-template-columns: auto auto auto auto;
+  padding: 0 10px;
+}
+
+@media screen and (max-width: 1200px) {
+	.grid-container {
+	  grid-template-columns: auto auto auto;	  
+	}
+}
+
+@media screen and (max-width: 950px) {
+	
+	.grid-container {
+	  grid-template-columns: auto auto;	  
+	}
+	
+	section.main-content {
+	float: left;
+	width: 70%;
+	margin-bottom: 2em;		
+	}
+}
+
+@media screen and (max-width: 700px) {
+	
+	.grid-container {
+	  grid-template-columns: auto auto;  
+	}
+	
+	section.main-content {
+	float: left;
+	width: 70%;
+	margin-bottom: 2em;		
+	}
+}
+
+@media screen and (max-width: 500px) {
+	
+	.grid-container {
+	  display: block;	  
+	}
+	
+	section.main-content {
+	float: left;
+	width: 90%;
+	margin-bottom: 2em;		
+	}
+}
+
+/* page style details */
+
+img.card {
+	display: block;
+	width: 100%;
+	height: 100%;
+	margin: auto;
+	padding-bottom: 10px;	
+}
+
+article.card {
+	padding: 1em;
+	border: 2px solid #03AA0D;
+	border-radius: 10px;
+	text-align: center;
+}
+
+div.card-title {
+	min-height: 4em;
+}
+
+div.card-status {
+	min-height: 1em;
+}
+
+div.card-intro {
+	min-height: 12.5em;
+}
+
+div.ratings {
+	min-height: 2em;
+}
+
+a.card {
+	text-decoration: none;
+	color: black;
+	font-weight:normal;
+}
+
+h1, h2, h3 {
+	text-align: center;
+}
+
+h1.labs {
+	padding: 0.5em;
+	margin: 0 0 0 10px;
+	border: 2px solid #03AA0D;
+	border-radius: 10px;
+	background-color: #00BFFF;
+	width: 124%;
+}
+
+.card-link {
+	padding-top: 10px;
+	padding-bottom: 5px;
+	text-decoration: underline;
+	color: blue;
+}
+
+a#bottom {
+	display: block;
+}
+
+.development-status {
+	color: #03AA0D;
+}
+
+.new-status {
+	color: crimson;
+}
+
+
+
