@@ -44,6 +44,7 @@ class LoginUtilities
 		// MySQL DATETIME format
 		$format = date("Y-m-d H:i:s");
 		$login_time = date($format, time());
+		$member->set_last_login($login_time);
 		
 		$member_control = $mdb_control->getController("member");
 		$success = $member_control->updateAttribute($member, "last_login");
@@ -63,6 +64,7 @@ class LoginUtilities
 		$member_control = $mdb_control->getController("member");
 		$member = new Member();
 		$member = $member_control->getByPrimaryKey("member_id", $member_id);
+		$member->set_last_logoff($logout_time);
 		$success = $member_control->updateAttribute($member, "last_logoff");
 		
 		return $success;
