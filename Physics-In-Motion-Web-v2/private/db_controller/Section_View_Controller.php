@@ -7,24 +7,27 @@ class Section_View_Controller extends DatabaseController {
 	public function __construct(){}
 	//($section_id, $section_name, $start_date, $end_date, 
 	// $section_description, $professor_id, 
-	// $professor_professor_first_name, $professor_professor_last_name, 
+	// $professor_first_name, $professor_last_name, 
 	// $school_name)
 	
 	protected function getData($db_result, $db_connection)
 	{
 		$dataArray = array();
+		$description = "  ";
 		
 		if($db_result)
 		{
 			while ($row = mysqli_fetch_array($db_result, MYSQLI_ASSOC))
 			{
+				
 				$section_view = new Section_View();
+				if(isset($row['section_description']))
+					$description = $row['section_description'];			
 				
 				$section_view->initializeView($row['section_id'], $row['section_name'], 
-										$row['start_date'], $row['end_date'], 
-										$row['section_description'], 
-										$row['professor_id'], $row['professor_first_name'], 
-										$row['professor_last_name'], $row['school_name']);
+								$row['start_date'], $row['end_date'], $description, 
+								$row['professor_id'], $row['professor_first_name'], 
+								$row['professor_last_name'], $row['school_name']);
 										
 				// pushes each object onto the end of the array
 				$dataArray[] = $section_view;

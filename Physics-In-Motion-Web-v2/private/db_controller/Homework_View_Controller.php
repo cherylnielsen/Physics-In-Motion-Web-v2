@@ -12,18 +12,21 @@ class Homework_View_Controller extends DatabaseController {
 	protected function getData($db_result, $db_connection)
 	{
 		$dataArray = array();
+		$date_due = 0;
 		
 		if($db_result)
 		{
 			while ($row = mysqli_fetch_array($db_result, MYSQLI_ASSOC))
 			{
 				$homework = new Homework_View();
+				if(isset($row['date_due']))
+					$date_due = $row['date_due'];
 				
 				$homework->initializeView($row['homework_id'], $row['section_id'], 
 						$row['assignment_id'], $row['assignment_name'], $row['tutorial_lab_id'], 
 						$row['student_id'], $row['lab_summary'], $row['lab_data'], 
 						$row['graphs'], $row['math'], $row['hints'], $row['chat_session'], 
-						$row['date_due'], $row['date_submitted'], $row['filepath'], 
+						$date_due, $row['date_submitted'], $row['filepath'], 
 						$row['student_first_name'], $row['student_last_name'], 
 						$row['school_name'], $row['points_possible'], 
 						$row['points_earned'], $row['was_graded'], $row['hours']);
